@@ -1,4 +1,4 @@
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2015 The AOSParadox Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +14,8 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(BOARD_VENDOR),samsung)
-ifeq ($(TARGET_BOARD_PLATFORM),msm8226)
-
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
+ifeq ($(TARGET_DEVICE),ms013g)
+include $(call all-makefiles-under,$(LOCAL_PATH))
 
 ADSP_IMAGES := \
     adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 \
@@ -248,6 +246,5 @@ $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9306; \
     ln -sf /data/misc/audio/mbhc.bin \
     $(TARGET_OUT_ETC)/firmware/wcd9306/wcd9306_mbhc.bin)
 
+endif
 
-endif
-endif
